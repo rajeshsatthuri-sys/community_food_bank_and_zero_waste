@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Donate Food | GreenShare</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="donor.css">
+
+    <style>
+        body {
+            background: #f4f8f4;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #075e2f, #198754);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .donation-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            color: #075e2f;
+            font-weight: 700;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .form-label span {
+            color: red;
+        }
+
+        .workflow-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .workflow-step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .workflow-number {
+            min-width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #198754;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #198754;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            margin: auto;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .stat-card h3 {
+            color: #198754;
+            font-weight: 800;
+        }
+
+        .history-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="index.html">
+            🌱 GreenShare
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="donor.html">
+                        <i class="bi bi-speedometer2"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="donation.html">
+                        <i class="bi bi-heart-fill"></i>
+                        Donate Food
+                    </a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+                    <button
+                        class="btn btn-outline-light btn-sm mt-2 mt-lg-0"
+                        id="logoutBtn">
+
+                        <i class="bi bi-box-arrow-right"></i>
+                        Logout
+
+                    </button>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h1 class="display-5 fw-bold">
+                    Donate Food ❤️
+                </h1>
+
+                <p class="lead">
+                    Turn surplus food into meaningful support
+                    for people and communities.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div style="font-size:100px;">
+                    🍲
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="py-4">
+
+    <div class="container">
+
+        <div class="row g-3">
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+
+                    <div style="font-size:35px;">
+                        🍱
+                    </div>
+
+                    <h3 id="totalDonations">0</h3>
+
+                    <p class="mb-0">
+                        Total Donations
+                    </p>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+
+                    <div style="font-size:35px;">
+                        🍽️
+                    </div>
+
+                    <h3 id="mealsDonated">0</h3>
+
+                    <p class="mb-0">
+                        Meals Donated
+                    </p>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+
+                    <div style="font-size:35px;">
+                        ♻️
+                    </div>
+
+                    <h3 id="wasteReduced">0</h3>
+
+                    <p class="mb-0">
+                        Waste Reduced
+                    </p>
+
+                </div>
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+
+                    <div style="font-size:35px;">
+                        ❤️
+                    </div>
+
+                    <h3 id="peopleHelped">0</h3>
+
+                    <p class="mb-0">
+                        People Helped
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DONATION AREA
+===================================================== -->
+
+<main class="container py-5">
+
+    <div class="row g-4">
+
+        <!-- FORM -->
+
+        <div class="col-lg-8">
+
+            <div class="donation-card">
+
+                <h2 class="section-title mb-2">
+                    <i class="bi bi-box2-heart"></i>
+                    Create Food Donation
+                </h2>
+
+                <p class="text-muted mb-4">
+                    Enter the details of the food you want to donate.
+                </p>
+
+
+                <form id="donationForm" novalidate>
+
+
+                    <!-- FOOD INFORMATION -->
+
+                    <h5 class="fw-bold mb-3">
+                        🍱 Food Information
+                    </h5>
+
+                    <div class="row g-3">
+
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="foodName"
+                                class="form-label">
+
+                                Food Name <span>*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="foodName"
+                                placeholder="Example: Vegetable Rice"
+                                required>
+
+                            <div class="invalid-feedback">
+                                Please enter food name.
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="foodCategory"
+                                class="form-label">
+
+                                Food Category <span>*</span>
+
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="foodCategory"
+                                required>
+
+                                <option value="">
+                                    Select category
+                                </option>
+
+                                <option>Cooked Food</option>
+                                <option>Fruits</option>
+                                <option>Vegetables</option>
+                                <option>Bakery</option>
+                                <option>Packaged Food</option>
+                                <option>Groceries</option>
+                                <option>Other</option>
+
+                            </select>
+
+                            <div class="invalid-feedback">
+                                Please select category.
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="quantity"
+                                class="form-label">
+
+                                Quantity <span>*</span>
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="quantity"
+                                    min="0.1"
+                                    step="0.1"
+                                    placeholder="Example: 20"
+                                    required>
+
+                                <select
+                                    class="form-select"
+                                    id="quantityUnit">
+
+                                    <option value="kg">Kg</option>
+                                    <option value="packets">Packets</option>
+                                    <option value="plates">Plates</option>
+                                    <option value="boxes">Boxes</option>
+                                    <option value="litres">Litres</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="invalid-feedback">
+                                Please enter quantity.
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Food Condition <span>*</span>
+                            </label>
+
+                            <div class="border rounded p-3">
+
+                                <div class="form-check form-check-inline">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="foodCondition"
+                                        id="fresh"
+                                        value="Fresh"
+                                        checked>
+
+                                    <label
+                                        class="form-check-label"
+                                        for="fresh">
+
+                                        🟢 Fresh
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="form-check form-check-inline">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="foodCondition"
+                                        id="cooked"
+                                        value="Cooked">
+
+                                    <label
+                                        class="form-check-label"
+                                        for="cooked">
+
+                                        🍲 Cooked
+
+                                    </label>
+
+                                </div>
+
+
+                                <div class="form-check form-check-inline">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="foodCondition"
+                                        id="packaged"
+                                        value="Packaged">
+
+                                    <label
+                                        class="form-check-label"
+                                        for="packaged">
+
+                                        📦 Packaged
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <label
+                                for="foodDescription"
+                                class="form-label">
+
+                                Food Description
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="foodDescription"
+                                rows="3"
+                                placeholder="Describe the food..."></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AVAILABILITY -->
+
+                    <hr class="my-4">
+
+                    <h5 class="fw-bold mb-3">
+                        🕒 Availability
+                    </h5>
+
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="availableUntil"
+                                class="form-label">
+
+                                Available Until <span>*</span>
+
+                            </label>
+
+                            <input
+                                type="datetime-local"
+                                class="form-control"
+                                id="availableUntil"
+                                required>
+
+                            <div class="invalid-feedback">
+                                Please select a future date and time.
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="pickupAddress"
+                                class="form-label">
+
+                                Pickup Address <span>*</span>
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="pickupAddress"
+                                rows="3"
+                                placeholder="Enter complete pickup address"
+                                required></textarea>
+
+                            <div class="invalid-feedback">
+                                Please enter pickup address.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTACT -->
+
+                    <hr class="my-4">
+
+                    <h5 class="fw-bold mb-3">
+                        📞 Contact Information
+                    </h5>
+
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="contactNumber"
+                                class="form-label">
+
+                                Contact Number <span>*</span>
+
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="contactNumber"
+                                placeholder="+919876543210"
+                                pattern="^\+?[0-9]{10,15}$"
+                                required>
+
+                            <div class="invalid-feedback">
+                                Enter a valid phone number.
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="donorName"
+                                class="form-label">
+
+                                Donor / Organization Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="donorName"
+                                placeholder="Your name or organization">
+
+                        </div>
+
+
+                        <div class="col-12">
+
+                            <label
+                                for="additionalNotes"
+                                class="form-label">
+
+                                Additional Notes
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="additionalNotes"
+                                rows="3"
+                                placeholder="Additional information..."></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SAFETY -->
+
+                    <hr class="my-4">
+
+                    <div class="alert alert-warning">
+
+                        <div class="form-check">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="foodSafety"
+                                required>
+
+                            <label
+                                class="form-check-label"
+                                for="foodSafety">
+
+                                I confirm that the food is safe,
+                                suitable for donation, and has been
+                                stored and handled properly.
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="btn btn-success submit-btn">
+
+                        <i class="bi bi-heart-fill"></i>
+
+                        Submit Donation
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- WORKFLOW -->
+
+        <div class="col-lg-4">
+
+            <div class="workflow-card">
+
+                <h3 class="fw-bold mb-4">
+                    🔄 Donation Workflow
+                </h3>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        1
+                    </div>
+
+                    <div>
+                        <h6 class="fw-bold">
+                            Create Donation
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            Enter food and pickup details.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        2
+                    </div>
+
+                    <div>
+                        <h6 class="fw-bold">
+                            Donation Published
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            Your food becomes available.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        3
+                    </div>
+
+                    <div>
+                        <h6 class="fw-bold">
+                            Request Received
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            A beneficiary can request it.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="workflow-step">
+
+                    <div class="workflow-number">
+                        4
+                    </div>
+
+                    <div>
+                        <h6 class="fw-bold">
+                            Pickup
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            Food is collected.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="workflow-step mb-0">
+
+                    <div class="workflow-number">
+                        5
+                    </div>
+
+                    <div>
+                        <h6 class="fw-bold">
+                            Community Impact
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            Food reaches people in need.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DONATION HISTORY
+    ====================================================== -->
+
+    <section class="mt-5">
+
+        <h2 class="section-title">
+            📋 My Donations
+        </h2>
+
+        <p class="text-muted">
+            Your submitted donations will appear here.
+        </p>
+
+
+        <div class="table-responsive history-card">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead class="table-success">
+
+                    <tr>
+                        <th>Food</th>
+                        <th>Quantity</th>
+                        <th>Condition</th>
+                        <th>Available Until</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="donationHistory">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     SUCCESS MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="successModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-body text-center p-5">
+
+                <div class="success-icon mb-4">
+                    ✓
+                </div>
+
+                <h2 class="fw-bold text-success">
+                    Donation Submitted!
+                </h2>
+
+                <p class="mt-3">
+                    Your food donation has been successfully
+                    added to GreenShare.
+                </p>
+
+                <p class="text-muted">
+                    Thank you for helping reduce food waste
+                    and support the community.
+                </p>
+
+                <button
+                    type="button"
+                    class="btn btn-success px-5"
+                    data-bs-dismiss="modal">
+
+                    Continue
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SUCCESS TOAST
+===================================================== -->
+
+<div
+    class="toast-container position-fixed top-0 end-0 p-3"
+    style="z-index:9999;">
+
+    <div
+        id="successToast"
+        class="toast"
+        role="alert">
+
+        <div class="toast-header bg-success text-white">
+
+            <strong class="me-auto">
+                GreenShare
+            </strong>
+
+            <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="toast">
+            </button>
+
+        </div>
+
+        <div
+            class="toast-body"
+            id="toastMessage">
+
+            Donation submitted successfully!
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Bootstrap JavaScript -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- IMPORTANT: Donor JavaScript -->
+<script src="donor.js"></script>
+
+</body>
+</html>

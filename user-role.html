@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Your Role | GreenShare</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .role-page {
+            min-height: calc(100vh - 75px);
+            display: flex;
+            align-items: center;
+            padding: 70px 0;
+            background:
+                radial-gradient(circle at 10% 20%, #dff6e5, transparent 30%),
+                radial-gradient(circle at 90% 80%, #d8f1df, transparent 30%),
+                #f5fbf6;
+        }
+
+        .role-wrapper {
+            width: min(1000px, 92%);
+            margin: auto;
+        }
+
+        .role-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .role-heading .label {
+            color: #16813b;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .role-heading h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 10px 0;
+            color: #173b24;
+        }
+
+        .role-heading p {
+            color: #687b6d;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .role-card {
+            background: white;
+            border: 2px solid #dcebdd;
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 30px rgba(23, 107, 54, 0.06);
+        }
+
+        .role-card:hover {
+            transform: translateY(-8px);
+            border-color: #5bb875;
+            box-shadow: 0 20px 40px rgba(23, 107, 54, 0.13);
+        }
+
+        .role-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 22px;
+            display: grid;
+            place-items: center;
+            background: #e7f7eb;
+            font-size: 40px;
+        }
+
+        .role-card h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #173b24;
+        }
+
+        .role-card p {
+            color: #687b6d;
+            font-size: 14px;
+            min-height: 70px;
+        }
+
+        .role-button {
+            display: block;
+            margin-top: 22px;
+            padding: 13px 18px;
+            border-radius: 10px;
+            background: #176b36;
+            color: white;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .role-button:hover {
+            background: #0d4d26;
+        }
+
+        .role-back {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .role-back a {
+            color: #176b36;
+            font-weight: 700;
+        }
+
+        @media (max-width: 800px) {
+            .role-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav-content">
+
+        <a href="index.html" class="logo">
+            🌱 GreenShare
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="login.html">Login</a>
+
+            <a href="register.html" class="nav-button">
+                Register
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- ROLE SELECTION -->
+
+<section class="role-page">
+
+    <div class="role-wrapper">
+
+        <div class="role-heading">
+
+            <span class="label">
+                JOIN THE COMMUNITY
+            </span>
+
+            <h1>
+                How would you like to participate?
+            </h1>
+
+            <p>
+                Choose your role in GreenShare. Your dashboard
+                and available features will be customized
+                according to your role.
+            </p>
+
+        </div>
+
+
+        <div class="role-grid">
+
+            <!-- DONOR -->
+
+            <div class="role-card">
+
+                <div class="role-icon">
+                    🥫
+                </div>
+
+                <h2>
+                    Food Donor
+                </h2>
+
+                <p>
+                    Donate surplus food from your home,
+                    restaurant, shop or organization to
+                    people who need it.
+                </p>
+
+                <a
+                    href="register.html?role=donor"
+                    class="role-button"
+                >
+                    Continue as Donor →
+                </a>
+
+            </div>
+
+
+            <!-- FARMER -->
+
+            <div class="role-card">
+
+                <div class="role-icon">
+                    🚜
+                </div>
+
+                <h2>
+                    Farmer
+                </h2>
+
+                <p>
+                    Manage agricultural waste, connect
+                    with the community and find ways
+                    to reuse farm resources.
+                </p>
+
+                <a
+                    href="register.html?role=farmer"
+                    class="role-button"
+                >
+                    Continue as Farmer →
+                </a>
+
+            </div>
+
+
+            <!-- BENEFICIARY -->
+
+            <div class="role-card">
+
+                <div class="role-icon">
+                    🤝
+                </div>
+
+                <h2>
+                    Beneficiary
+                </h2>
+
+                <p>
+                    Request food support and track your
+                    requests through the GreenShare
+                    community network.
+                </p>
+
+                <a
+                    href="register.html?role=beneficiary"
+                    class="role-button"
+                >
+                    Continue as Beneficiary →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="role-back">
+
+            <a href="index.html">
+                ← Back to GreenShare Home
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</body>
+</html>

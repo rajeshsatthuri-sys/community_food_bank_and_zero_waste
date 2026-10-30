@@ -1,0 +1,659 @@
+/* =====================================================
+   GREENSHARE DONOR DASHBOARD
+===================================================== */
+
+:root {
+    --green-dark: #0b5d2a;
+    --green: #168a3b;
+    --green-light: #eaf8ef;
+    --green-bright: #22a447;
+    --text-dark: #17231a;
+    --text-muted: #68746b;
+    --white: #ffffff;
+    --border: #dfe8e1;
+    --background: #f5faf6;
+    --shadow: 0 12px 35px rgba(15, 72, 34, 0.10);
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text-dark);
+    background: var(--background);
+}
+
+a {
+    text-decoration: none;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #cfdad2;
+    border-radius: 12px;
+    min-height: 50px;
+    padding: 12px 15px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 0.2rem rgba(22, 138, 59, 0.15);
+}
+
+textarea.form-control {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-label {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-label span {
+    color: #dc3545;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.greenshare-navbar {
+    background: linear-gradient(
+        135deg,
+        #073d1d,
+        #0b6b2e
+    );
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand {
+    font-size: 1.55rem;
+    letter-spacing: 0.2px;
+}
+
+.brand-icon {
+    font-size: 1.7rem;
+    margin-right: 6px;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 600;
+    margin: 0 5px;
+    border-radius: 8px;
+    padding: 9px 12px !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.donor-hero {
+    padding: 75px 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(90, 190, 110, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #e8f8ec,
+            #f7fcf8
+        );
+}
+
+.hero-badge {
+    display: inline-block;
+    background: #d7f1df;
+    color: var(--green-dark);
+    border-radius: 50px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.donor-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.donor-hero h1 span {
+    color: var(--green);
+}
+
+.donor-hero p {
+    color: var(--text-muted);
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.hero-illustration {
+    width: 220px;
+    height: 220px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 50%;
+
+    font-size: 6rem;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats-section {
+    padding: 35px 0;
+    background: #ffffff;
+}
+
+.stat-card {
+    height: 100%;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    transition: 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    margin-bottom: 3px;
+}
+
+.stat-card p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading > span {
+    color: var(--green);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.section-heading h2 {
+    font-weight: 800;
+    margin: 7px 0;
+}
+
+.section-heading p {
+    color: var(--text-muted);
+}
+
+
+/* =====================================================
+   DONATION CARD
+===================================================== */
+
+.donation-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: clamp(20px, 4vw, 40px);
+    box-shadow: var(--shadow);
+}
+
+.form-section {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h4 {
+    color: var(--green-dark);
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.form-section h4 i {
+    margin-right: 7px;
+}
+
+.form-help {
+    display: block;
+    color: var(--text-muted);
+    margin-top: 7px;
+}
+
+
+/* =====================================================
+   FOOD CONDITION
+===================================================== */
+
+.condition-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 14px 16px;
+    min-height: 50px;
+    border: 1px solid #cfdad2;
+    border-radius: 12px;
+}
+
+.condition-box .form-check {
+    margin: 0;
+}
+
+
+/* =====================================================
+   SAFETY
+===================================================== */
+
+.safety-box {
+    background: #fff8df;
+    border: 1px solid #f0df9d;
+    border-radius: 14px;
+    padding: 17px;
+    margin: 10px 0 25px;
+}
+
+.safety-box .form-check-label {
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.submit-donation-btn {
+    width: 100%;
+    min-height: 58px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        #08782e,
+        #20a746
+    );
+
+    color: #ffffff;
+
+    font-size: 1.05rem;
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+.submit-donation-btn:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(22, 138, 59, 0.25);
+}
+
+.submit-donation-btn:disabled {
+    opacity: 0.7;
+    transform: none;
+}
+
+
+/* =====================================================
+   WORKFLOW
+===================================================== */
+
+.side-panel {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+.side-panel h3 {
+    font-weight: 800;
+    color: var(--green-dark);
+    margin-bottom: 28px;
+}
+
+.workflow-step {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.workflow-number {
+    min-width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green-light);
+    color: var(--green-dark);
+
+    font-weight: 800;
+}
+
+.workflow-step h5 {
+    font-weight: 800;
+    margin: 0 0 5px;
+}
+
+.workflow-step p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.workflow-line {
+    width: 2px;
+    height: 25px;
+    margin: 5px 0 5px 20px;
+    background: #cde6d3;
+}
+
+
+/* =====================================================
+   INFO CARD
+===================================================== */
+
+.info-card,
+.impact-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.info-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.info-card h4,
+.impact-card h4 {
+    font-weight: 800;
+}
+
+.info-card p,
+.impact-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.impact-card {
+    background:
+        linear-gradient(
+            135deg,
+            #e6f7eb,
+            #f7fcf8
+        );
+}
+
+.impact-message {
+    color: var(--green-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+.history-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.history-card thead {
+    background: #edf8f0;
+}
+
+.history-card th {
+    color: var(--green-dark);
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.history-card td {
+    color: #37433b;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 50px;
+    background: #dff5e5;
+    color: #08752b;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#emptyHistory h5 {
+    font-weight: 800;
+}
+
+#emptyHistory p {
+    color: var(--text-muted);
+}
+
+
+/* =====================================================
+   SUCCESS MODAL
+===================================================== */
+
+.success-modal {
+    border: none;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.success-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dff5e5;
+    color: #08752b;
+
+    font-size: 2.4rem;
+    font-weight: 900;
+}
+
+.success-modal h2 {
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   VALIDATION
+===================================================== */
+
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid {
+    border-color: #dc3545;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+    border-color: #198754;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+    .donor-hero {
+        padding: 55px 0;
+    }
+
+    .hero-illustration {
+        width: 170px;
+        height: 170px;
+        font-size: 4.5rem;
+    }
+
+    .navbar-nav {
+        padding-top: 15px;
+    }
+
+    .navbar-nav .nav-link {
+        margin-bottom: 4px;
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+
+    .donor-hero {
+        text-align: center;
+    }
+
+    .donor-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-illustration {
+        margin-top: 15px;
+    }
+
+    .donation-card {
+        border-radius: 17px;
+    }
+
+    .side-panel,
+    .info-card,
+    .impact-card {
+        border-radius: 17px;
+    }
+
+    .condition-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+    .donor-hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .stat-card {
+        padding: 20px 10px;
+    }
+
+    .stat-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .stat-card p {
+        font-size: 0.85rem;
+    }
+
+    .donation-card {
+        padding: 18px;
+    }
+
+    .side-panel {
+        padding: 20px;
+    }
+
+}
