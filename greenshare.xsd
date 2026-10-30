@@ -1,0 +1,110 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="foodBank">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="donors">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="donor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="phone" type="xs:string"/>
+                                        <xs:element name="location" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="foodItems">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="food" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="category" type="xs:string"/>
+                                        <xs:element name="quantity">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:positiveInteger">
+                                                        <xs:attribute name="unit" use="required">
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:enumeration value="kg"/>
+                                                                    <xs:enumeration value="packets"/>
+                                                                    <xs:enumeration value="plates"/>
+                                                                    <xs:enumeration value="boxes"/>
+                                                                    <xs:enumeration value="litres"/>
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:attribute>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="expiryDate" type="xs:date"/>
+                                        <xs:element name="donorRef" type="xs:IDREF"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="distributions">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="distribution" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="foodRef" type="xs:IDREF"/>
+                                        <xs:element name="receiver" type="xs:string"/>
+                                        <xs:element name="quantity">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:positiveInteger">
+                                                        <xs:attribute name="unit" use="required">
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:enumeration value="kg"/>
+                                                                    <xs:enumeration value="packets"/>
+                                                                    <xs:enumeration value="plates"/>
+                                                                    <xs:enumeration value="boxes"/>
+                                                                    <xs:enumeration value="litres"/>
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:attribute>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="date" type="xs:date"/>
+                                        <xs:element name="status">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Pending"/>
+                                                    <xs:enumeration value="Distributed"/>
+                                                    <xs:enumeration value="Rejected"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

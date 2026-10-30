@@ -1,0 +1,50 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<foodBank>
+    <donors>
+        <donor id="D101">
+            <name>Ravi Kumar</name>
+            <phone>9876543210</phone>
+            <location>Hyderabad</location>
+        </donor>
+        <donor id="D102">
+            <name>Sita Reddy</name>
+            <phone>9123456780</phone>
+            <location>Secunderabad</location>
+        </donor>
+    </donors>
+
+    <foodItems>
+        <food id="F101">
+            <name>Rice</name>
+            <category>Grains</category>
+            <quantity unit="kg">50</quantity>
+            <expiryDate>2026-12-31</expiryDate>
+            <donorRef>D101</donorRef>
+        </food>
+        <food id="F102">
+            <name>Fresh Vegetables</name>
+            <category>Vegetables</category>
+            <quantity unit="kg">20</quantity>
+            <expiryDate>2026-11-05</expiryDate>
+            <donorRef>D102</donorRef>
+        </food>
+    </foodItems>
+
+    <distributions>
+        <distribution id="DS101">
+            <foodRef>F101</foodRef>
+            <receiver>Community Shelter</receiver>
+            <quantity unit="kg">15</quantity>
+            <date>2026-10-30</date>
+            <status>Distributed</status>
+        </distribution>
+        <distribution id="DS102">
+            <foodRef>F102</foodRef>
+            <receiver>Local Community Center</receiver>
+            <quantity unit="kg">5</quantity>
+            <date>2026-10-30</date>
+            <status>Pending</status>
+        </distribution>
+    </distributions>
+</foodBank>

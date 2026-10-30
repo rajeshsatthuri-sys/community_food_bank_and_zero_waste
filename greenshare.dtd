@@ -1,0 +1,29 @@
+
+<!ELEMENT foodBank (donors, foodItems, distributions)>
+
+<!ELEMENT donors (donor+)>
+<!ELEMENT donor (name, phone, location)>
+<!ATTLIST donor id ID #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+
+<!ELEMENT foodItems (food+)>
+<!ELEMENT food (name, category, quantity, expiryDate, donorRef)>
+<!ATTLIST food id ID #REQUIRED>
+
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ATTLIST quantity unit (kg|packets|plates|boxes|litres) #REQUIRED>
+<!ELEMENT expiryDate (#PCDATA)>
+<!ELEMENT donorRef (#PCDATA)>
+
+<!ELEMENT distributions (distribution+)>
+<!ELEMENT distribution (foodRef, receiver, quantity, date, status)>
+<!ATTLIST distribution id ID #REQUIRED>
+
+<!ELEMENT foodRef (#PCDATA)>
+<!ELEMENT receiver (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT status ( #PCDATA )>
